@@ -1,6 +1,6 @@
 # GitHub Xcode Release Workflow
 
-This repo can build FrameForge AI through GitHub Actions on macOS.
+This repo can build FrameForge AI through GitHub Actions on macOS 26 with Xcode 26 or later.
 
 ## Workflows
 
