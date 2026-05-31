@@ -22,7 +22,7 @@ The workflow also supports `APP_STORE_CONNECT_API_KEY_BASE64` instead of `APP_ST
 
 Add this at `Settings > Secrets and variables > Actions > Variables` if the bundle ID differs:
 
-- `BUNDLE_ID`: defaults to `com.frameforge.ai`.
+- `BUNDLE_ID`: defaults to `com.frameforgeai.app`.
 
 ## How To Run
 

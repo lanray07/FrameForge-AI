@@ -22,7 +22,7 @@ env:
   PROJECT_PATH: FrameForgeAI.xcodeproj
   SCHEME: FrameForgeAI
   CONFIGURATION: Release
-  BUNDLE_ID: ${{ vars.BUNDLE_ID || 'com.frameforge.ai' }}
+  BUNDLE_ID: ${{ vars.BUNDLE_ID || 'com.frameforgeai.app' }}
 
 jobs:
   archive:
