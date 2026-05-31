@@ -1,6 +1,11 @@
 name: Xcode App Store Archive
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/xcode-app-store-archive.yml"
   workflow_dispatch:
     inputs:
       marketing_version:
@@ -84,7 +89,7 @@ jobs:
       - name: Archive app
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          MARKETING_VERSION: ${{ inputs.marketing_version }}
+          MARKETING_VERSION: ${{ inputs.marketing_version || '1.0' }}
         run: |
           set -o pipefail
           ARCHIVE_PATH="$RUNNER_TEMP/FrameForgeAI.xcarchive"
@@ -152,7 +157,7 @@ jobs:
           if-no-files-found: error
 
       - name: Validate App Store Connect upload secrets
-        if: ${{ inputs.upload_to_app_store_connect }}
+        if: ${{ github.event_name == 'push' || inputs.upload_to_app_store_connect }}
         env:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
@@ -167,7 +172,7 @@ jobs:
           done
 
       - name: Upload IPA to App Store Connect
-        if: ${{ inputs.upload_to_app_store_connect }}
+        if: ${{ github.event_name == 'push' || inputs.upload_to_app_store_connect }}
         env:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
