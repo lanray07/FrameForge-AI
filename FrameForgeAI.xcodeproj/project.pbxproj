@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF0000010000000000000001 /* FrameForgeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000001 /* FrameForgeAIApp.swift */; };
+		FF0000010000000000000002 /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000002 /* AppModels.swift */; };
+		FF0000010000000000000003 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000003 /* AppState.swift */; };
+		FF0000010000000000000004 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000004 /* DashboardViewModel.swift */; };
+		FF0000010000000000000005 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000005 /* AIService.swift */; };
+		FF0000010000000000000006 /* SpeechRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000006 /* SpeechRecognizerService.swift */; };
+		FF0000010000000000000007 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000007 /* SubscriptionService.swift */; };
+		FF0000010000000000000008 /* FrameForgeDesignEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000008 /* FrameForgeDesignEngine.swift */; };
+		FF0000010000000000000009 /* TemplateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000009 /* TemplateLibrary.swift */; };
+		FF000001000000000000000A /* PremiumComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000A /* PremiumComponents.swift */; };
+		FF000001000000000000000B /* VoiceInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000B /* VoiceInputPanel.swift */; };
+		FF000001000000000000000C /* DeviceMockupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000C /* DeviceMockupView.swift */; };
+		FF000001000000000000000D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000D /* ContentView.swift */; };
+		FF000001000000000000000E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000E /* OnboardingView.swift */; };
+		FF000001000000000000000F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000101000000000000000F /* DashboardView.swift */; };
+		FF0000010000000000000010 /* WorkspaceViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0001010000000000000010 /* WorkspaceViews.swift */; };
+		FF0000020000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0001020000000000000001 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF0001000000000000000001 /* FrameForgeAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrameForgeAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF0001010000000000000001 /* FrameForgeAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameForgeAIApp.swift; sourceTree = "<group>"; };
+		FF0001010000000000000002 /* AppModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModels.swift; sourceTree = "<group>"; };
+		FF0001010000000000000003 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF0001010000000000000004 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		FF0001010000000000000005 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		FF0001010000000000000006 /* SpeechRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerService.swift; sourceTree = "<group>"; };
+		FF0001010000000000000007 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		FF0001010000000000000008 /* FrameForgeDesignEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameForgeDesignEngine.swift; sourceTree = "<group>"; };
+		FF0001010000000000000009 /* TemplateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLibrary.swift; sourceTree = "<group>"; };
+		FF000101000000000000000A /* PremiumComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumComponents.swift; sourceTree = "<group>"; };
+		FF000101000000000000000B /* VoiceInputPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputPanel.swift; sourceTree = "<group>"; };
+		FF000101000000000000000C /* DeviceMockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMockupView.swift; sourceTree = "<group>"; };
+		FF000101000000000000000D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF000101000000000000000E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FF000101000000000000000F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		FF0001010000000000000010 /* WorkspaceViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceViews.swift; sourceTree = "<group>"; };
+		FF0001020000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF0001020000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF0001020000000000000003 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF0002000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF0003000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				FF0003000000000000000002 /* FrameForgeAI */,
+				FF0003000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000002 /* FrameForgeAI */ = {
+			isa = PBXGroup;
+			children = (
+				FF0003000000000000000010 /* App */,
+				FF0003000000000000000011 /* Models */,
+				FF0003000000000000000012 /* Views */,
+				FF0003000000000000000013 /* ViewModels */,
+				FF0003000000000000000014 /* Services */,
+				FF0003000000000000000015 /* Components */,
+				FF0003000000000000000016 /* DesignEngine */,
+				FF0003000000000000000017 /* Templates */,
+				FF0003000000000000000018 /* Resources */,
+				FF0001020000000000000001 /* Assets.xcassets */,
+				FF0001020000000000000002 /* Info.plist */,
+			);
+			path = FrameForgeAI;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001000000000000000001 /* FrameForgeAI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000010 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000001 /* FrameForgeAIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000011 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000002 /* AppModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000012 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF000101000000000000000D /* ContentView.swift */,
+				FF000101000000000000000E /* OnboardingView.swift */,
+				FF000101000000000000000F /* DashboardView.swift */,
+				FF0001010000000000000010 /* WorkspaceViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000013 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000003 /* AppState.swift */,
+				FF0001010000000000000004 /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000014 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000005 /* AIService.swift */,
+				FF0001010000000000000006 /* SpeechRecognizerService.swift */,
+				FF0001010000000000000007 /* SubscriptionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000015 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FF000101000000000000000A /* PremiumComponents.swift */,
+				FF000101000000000000000B /* VoiceInputPanel.swift */,
+				FF000101000000000000000C /* DeviceMockupView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000016 /* DesignEngine */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000008 /* FrameForgeDesignEngine.swift */,
+			);
+			path = DesignEngine;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000017 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001010000000000000009 /* TemplateLibrary.swift */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		FF0003000000000000000018 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF0001020000000000000003 /* README.md */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF0004000000000000000001 /* FrameForgeAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF0007000000000000000002 /* Build configuration list for PBXNativeTarget "FrameForgeAI" */;
+			buildPhases = (
+				FF0002000000000000000001 /* Sources */,
+				FF0002000000000000000002 /* Frameworks */,
+				FF0002000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrameForgeAI;
+			productName = FrameForgeAI;
+			productReference = FF0001000000000000000001 /* FrameForgeAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF0005000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FF0004000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = FF0007000000000000000001 /* Build configuration list for PBXProject "FrameForgeAI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF0003000000000000000001;
+			productRefGroup = FF0003000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF0004000000000000000001 /* FrameForgeAI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF0002000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF0000020000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF0002000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF0000010000000000000001 /* FrameForgeAIApp.swift in Sources */,
+				FF0000010000000000000002 /* AppModels.swift in Sources */,
+				FF0000010000000000000003 /* AppState.swift in Sources */,
+				FF0000010000000000000004 /* DashboardViewModel.swift in Sources */,
+				FF0000010000000000000005 /* AIService.swift in Sources */,
+				FF0000010000000000000006 /* SpeechRecognizerService.swift in Sources */,
+				FF0000010000000000000007 /* SubscriptionService.swift in Sources */,
+				FF0000010000000000000008 /* FrameForgeDesignEngine.swift in Sources */,
+				FF0000010000000000000009 /* TemplateLibrary.swift in Sources */,
+				FF000001000000000000000A /* PremiumComponents.swift in Sources */,
+				FF000001000000000000000B /* VoiceInputPanel.swift in Sources */,
+				FF000001000000000000000C /* DeviceMockupView.swift in Sources */,
+				FF000001000000000000000D /* ContentView.swift in Sources */,
+				FF000001000000000000000E /* OnboardingView.swift in Sources */,
+				FF000001000000000000000F /* DashboardView.swift in Sources */,
+				FF0000010000000000000010 /* WorkspaceViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF0006000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF0006000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF0006000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FrameForgeAI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frameforge.ai;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF0006000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FrameForgeAI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frameforge.ai;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF0007000000000000000001 /* Build configuration list for PBXProject "FrameForgeAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0006000000000000000001 /* Debug */,
+				FF0006000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF0007000000000000000002 /* Build configuration list for PBXNativeTarget "FrameForgeAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0006000000000000000003 /* Debug */,
+				FF0006000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF0005000000000000000001 /* Project object */;
+}
