@@ -34,4 +34,4 @@ Add this at `Settings > Secrets and variables > Actions > Variables` if the bund
 6. Run `Xcode App Store Archive`.
 7. Leave `upload_to_app_store_connect` as `false` for the first run, then set it to `true` once the archive succeeds.
 
-The release workflow uses Xcode's command-line tools with `-allowProvisioningUpdates` and an App Store Connect API key to archive/export the app, then `xcrun altool` with the same key for upload.
+The release workflow creates an unsigned archive, uses Xcode cloud signing with `-allowProvisioningUpdates` and an App Store Connect API key during export, then uploads with `xcrun altool` and the same key.
