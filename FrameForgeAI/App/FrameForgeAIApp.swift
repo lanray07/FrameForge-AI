@@ -5,6 +5,7 @@ import SwiftUI
 struct FrameForgeAIApp: App {
     @StateObject private var appState = AppState()
     @StateObject private var speechService = SpeechRecognizerService()
+    @StateObject private var subscriptionService = SubscriptionService()
 
     private let modelContainer: ModelContainer = {
         let schema = Schema([
@@ -31,6 +32,7 @@ struct FrameForgeAIApp: App {
             ContentView()
                 .environmentObject(appState)
                 .environmentObject(speechService)
+                .environmentObject(subscriptionService)
                 .modelContainer(modelContainer)
         }
     }

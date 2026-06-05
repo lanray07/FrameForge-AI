@@ -68,4 +68,5 @@ struct MainTabView: View {
     ContentView()
         .environmentObject(AppState())
         .environmentObject(SpeechRecognizerService())
+        .environmentObject(SubscriptionService())
 }

@@ -1,4 +1,5 @@
 import PhotosUI
+import StoreKit
 import SwiftUI
 import UIKit
 
@@ -539,17 +540,90 @@ struct BatchCreatePlaceholderView: View {
     }
 }
 
+private struct PaywallPlan: Identifiable {
+    let id: String
+    let title: String
+    let fallbackPrice: String
+    let fallbackLength: String
+    let services: String
+}
+
 struct PaywallView: View {
+    @EnvironmentObject private var subscriptionService: SubscriptionService
+    @State private var hasLoadedProducts = false
+
+    private let privacyPolicyURL = URL(string: "https://github.com/lanray07/FrameForge-AI/blob/main/PRIVACY.md")!
+    private let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+
+    private let plans = [
+        PaywallPlan(
+            id: "frameforge.pro.monthly",
+            title: "Pro Creator Monthly",
+            fallbackPrice: "GBP 9.99",
+            fallbackLength: "1 month",
+            services: "Unlimited exports, premium templates, App Store generator, AI assistant, and voice input"
+        ),
+        PaywallPlan(
+            id: "frameforge.pro.yearly",
+            title: "Pro Creator Yearly",
+            fallbackPrice: "GBP 79.99",
+            fallbackLength: "1 year",
+            services: "Unlimited exports, premium templates, App Store generator, AI assistant, and voice input"
+        ),
+        PaywallPlan(
+            id: "frameforge.agency.monthly",
+            title: "Agency Pro Monthly",
+            fallbackPrice: "GBP 29.99",
+            fallbackLength: "1 month",
+            services: "Brand kits, batch exports, advanced templates, white-label exports, and team-ready launch assets"
+        )
+    ]
+
     var body: some View {
         StudioScreen(title: "Upgrade") {
-            planCard("Free", price: "GBP 0", details: "Limited exports, basic templates, watermark")
-            planCard("Pro Creator", price: "GBP 9.99 monthly", details: "Unlimited exports, premium templates, App Store generator, AI assistant, voice input")
-            planCard("Pro Yearly", price: "GBP 79.99 yearly", details: "Best value for creators shipping every month")
-            planCard("Agency Pro", price: "GBP 29.99 monthly", details: "Brand kits, batch exports, advanced templates, white-label exports")
+            planCard("Free", price: "GBP 0", length: "No renewal", details: "Limited exports, basic templates, and watermark", productID: nil)
+
+            ForEach(plans) { plan in
+                let product = subscriptionService.product(for: plan.id)
+                planCard(
+                    product?.displayName ?? plan.title,
+                    price: product?.displayPrice ?? plan.fallbackPrice,
+                    length: subscriptionLength(for: product, fallback: plan.fallbackLength),
+                    details: plan.services,
+                    productID: plan.id
+                )
+            }
+
+            restoreButton
+            legalDisclosure
+
+            if subscriptionService.isLoading {
+                HStack(spacing: 10) {
+                    ProgressView()
+                        .tint(.cyan)
+                    Text("Loading subscription options")
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.white.opacity(0.74))
+                }
+                .padding(16)
+                .glassPanel(cornerRadius: 18)
+            }
+        }
+        .task {
+            guard !hasLoadedProducts else { return }
+            hasLoadedProducts = true
+            await subscriptionService.loadProducts()
+        }
+        .alert("Subscription", isPresented: errorBinding) {
+            Button("OK", role: .cancel) {
+                subscriptionService.errorMessage = nil
+            }
+        } message: {
+            Text(subscriptionService.errorMessage ?? "")
         }
     }
 
-    private func planCard(_ title: String, price: String, details: String) -> some View {
+    private func planCard(_ title: String, price: String, length: String, details: String, productID: String?) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.title3.weight(.bold))
@@ -559,14 +633,113 @@ struct PaywallView: View {
                 .font(.headline)
                 .foregroundStyle(.cyan)
 
+            Text("Subscription length: \(length)")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.86))
+
             Text(details)
                 .font(.subheadline)
                 .foregroundStyle(.white.opacity(0.68))
 
-            PrimaryGradientButton(title: "Choose \(title)", systemImage: "crown") {}
+            Text("Services provided during each subscription period: \(details). Auto-renews until cancelled.")
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.58))
+
+            if let productID {
+                PrimaryGradientButton(title: "Choose \(title)", systemImage: "crown") {
+                    Task {
+                        await chooseProduct(productID)
+                    }
+                }
+            } else {
+                Label("Current starter plan", systemImage: "checkmark.circle.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.cyan)
+            }
         }
         .padding(18)
         .glassPanel(cornerRadius: 24)
+    }
+
+    private var restoreButton: some View {
+        Button {
+            Task {
+                await subscriptionService.restorePurchases()
+            }
+        } label: {
+            Label(subscriptionService.isRestoring ? "Restoring Purchases" : "Restore Purchases", systemImage: "arrow.clockwise")
+                .font(.headline)
+                .foregroundStyle(.cyan)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(Color.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .disabled(subscriptionService.isRestoring)
+        .accessibilityLabel("Restore Purchases")
+    }
+
+    private var legalDisclosure: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Payment is charged to your Apple Account at confirmation. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period.")
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.64))
+
+            HStack(spacing: 16) {
+                Link("Terms of Use (EULA)", destination: termsURL)
+                Link("Privacy Policy", destination: privacyPolicyURL)
+            }
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(.cyan)
+        }
+        .padding(16)
+        .glassPanel(cornerRadius: 18)
+    }
+
+    private var errorBinding: Binding<Bool> {
+        Binding {
+            subscriptionService.errorMessage != nil
+        } set: { isPresented in
+            if !isPresented {
+                subscriptionService.errorMessage = nil
+            }
+        }
+    }
+
+    @MainActor
+    private func chooseProduct(_ productID: String) async {
+        if subscriptionService.products.isEmpty {
+            await subscriptionService.loadProducts()
+        }
+
+        guard let product = subscriptionService.product(for: productID) else {
+            subscriptionService.errorMessage = "Subscription products are still loading. Please try again."
+            return
+        }
+
+        await subscriptionService.purchase(product)
+    }
+
+    private func subscriptionLength(for product: Product?, fallback: String) -> String {
+        guard let period = product?.subscription?.subscriptionPeriod else {
+            return fallback
+        }
+
+        let unit: String
+        switch period.unit {
+        case .day:
+            unit = period.value == 1 ? "day" : "days"
+        case .week:
+            unit = period.value == 1 ? "week" : "weeks"
+        case .month:
+            unit = period.value == 1 ? "month" : "months"
+        case .year:
+            unit = period.value == 1 ? "year" : "years"
+        @unknown default:
+            unit = "period"
+        }
+
+        return "\(period.value) \(unit)"
     }
 }
 
