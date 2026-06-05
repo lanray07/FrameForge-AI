@@ -1,4 +1,5 @@
 name: Xcode App Store Archive
+# Touch this workflow file to trigger an immediate App Store archive/upload from main.
 
 on:
   push:
